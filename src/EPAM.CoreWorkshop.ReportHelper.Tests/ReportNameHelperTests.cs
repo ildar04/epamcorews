@@ -1,3 +1,4 @@
+using System.Threading;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,6 +13,7 @@ namespace EPAM.CoreWorkshop.ReportHelper.Tests
         [DataRow("Hello my /world", '_', "Hello my _world")]
         public void NormalizeFileNameTest(string name, char repl, string expected)
         {
+            Thread.Sleep(15000);
             var result = ReportNameHelper.NormalizeFileName(name, repl);
 
             result.Should().BeEquivalentTo(expected);
